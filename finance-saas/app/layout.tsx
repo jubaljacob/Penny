@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import {
-  ClerkLoaded,
+  // ClerkLoaded,
   ClerkProvider,
-  SignInButton,
+  // SignInButton,
   SignedIn,
   SignedOut,
-  UserButton
+  // UserButton
 } from '@clerk/nextjs'
 
 
@@ -38,10 +38,10 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <SignedOut>
-            <SignInButton />
+            {/* <SignInButton /> */}
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            {/* <UserButton /> */}
           </SignedIn>
           {children}
         </body>
