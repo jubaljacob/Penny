@@ -39,9 +39,7 @@ export default function RootLayout({
       <html lang="en">
         <body className="{inter.className">
           <QueryProvider>
-
           {children}
-
           </QueryProvider>
         </body>
       </html>
