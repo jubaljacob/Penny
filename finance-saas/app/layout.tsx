@@ -4,13 +4,14 @@ import {
   // ClerkLoaded,
   ClerkProvider,
   // SignInButton,
-  SignedIn,
-  SignedOut,
+  // SignedIn,
+  // SignedOut,
   // UserButton
 } from '@clerk/nextjs'
 
 
 import "./globals.css";
+import { QueryProvider } from "@/providers/query-provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,14 +37,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>
-          <SignedOut>
-            {/* <SignInButton /> */}
-          </SignedOut>
-          <SignedIn>
-            {/* <UserButton /> */}
-          </SignedIn>
+        <body className="{inter.className">
+          <QueryProvider>
+
           {children}
+
+          </QueryProvider>
         </body>
       </html>
     </ClerkProvider>
