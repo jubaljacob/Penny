@@ -1,28 +1,24 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import {
-  // ClerkLoaded,
-  ClerkProvider,
-  // SignInButton,
-  // SignedIn,
-  // SignedOut,
-  // UserButton
-} from '@clerk/nextjs'
-
-
-import "./globals.css";
+// import localFont from "next/font/local";
+import { ClerkProvider } from '@clerk/nextjs'
 import { QueryProvider } from "@/providers/query-provider";
+import { SheetProvider } from "@/providers/sheet-provider";
+import { Inter } from "next/font/google"
+import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({subsets: ["latin"]});
+
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -37,9 +33,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="{inter.className">
+        <body className={inter.className}>
           <QueryProvider>
-          {children}
+            <SheetProvider />
+            <Toaster />
+              {children}
           </QueryProvider>
         </body>
       </html>
